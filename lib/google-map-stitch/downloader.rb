@@ -18,7 +18,7 @@ class GMS
       mkdir?(@output_dir)
       @files.each do |tile|
         mkdir?(File.join(@output_dir,tile[:dir]))
-        File.open(File.join(@output_dir,tile[:dir],tile[:file]), 'w+') do |file|
+        File.open(File.join(@output_dir,tile[:dir],tile[:file]), 'wb+') do |file|
           open(tile[:url], 'rb') do |image|
             file.write(image.read)
           end
